@@ -9,7 +9,7 @@
 </p>
 <% if @section.lessons.any? %>
   <ul>
-    <% @section.lessons.each do |lesson| %>
+    <% @section.lessons.order(:order).each do |lesson| %>
       <li><%= link_to lesson.name, lesson_path( lesson) %></li>
     <% end %>
   </ul>
