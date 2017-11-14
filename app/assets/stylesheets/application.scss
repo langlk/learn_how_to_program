@@ -22,7 +22,7 @@ ul {
 }
 
 .navbar-default ul {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 767px) {
@@ -31,7 +31,7 @@ ul {
     justify-content: space-between;
   }
 
-  .navbar-default .navbar-nav.navbar-left {
+  .navbar-default .navbar-nav.navbar-right {
     width: 100%;
     padding: 0px;
     margin: 0px;
