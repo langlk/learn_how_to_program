@@ -8,8 +8,7 @@ describe Lesson do
   it { should validate_presence_of :section }
 
   it "validates uniqueness of lesson order" do
-    course = Course.new(name: "Test")
-    course.save
+    course = Course.create(name: "Test")
     section = course.sections.create(name: "Test", order: 1)
     lesson1 = section.lessons.create(
       name: "Test",
@@ -40,5 +39,41 @@ describe Lesson do
       order: 1
     )
     expect(lesson2.save).to eq(true)
+  end
+
+  describe "#next" do
+    it "returns the next lesson in the section" do
+      course = Course.create(name: "Test")
+      section = course.sections.create(name: "Test", order: 1)
+      lesson1 = section.lessons.create(
+        name: "Test",
+        content: "Test",
+        order: 1
+      )
+      lesson2 = section.lessons.create(
+        name: "Test",
+        content: "Test",
+        order: 2
+      )
+      expect(lesson1.next).to eq(lesson2)
+    end
+  end
+
+  describe '#previous' do
+    it "returns the previous lesson in the section" do
+      course = Course.create(name: "Test")
+      section = course.sections.create(name: "Test", order: 1)
+      lesson1 = section.lessons.create(
+        name: "Test",
+        content: "Test",
+        order: 1
+      )
+      lesson2 = section.lessons.create(
+        name: "Test",
+        content: "Test",
+        order: 2
+      )
+      expect(lesson2.previous).to eq(lesson1)
+    end
   end
 end
