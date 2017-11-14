@@ -1,0 +1,13 @@
+<%= render "layouts/errors", object: @section %>
+
+<%= form_for [@course, @section] do |f| %>
+  <div class="form-group">
+    <%= f.label :name, class: "control-label" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :order, class: "control-label" %>
+    <%= f.number_field :order, class: "form-control" %>
+  </div>
+  <%= f.submit class: "btn" %>
+<% end %>

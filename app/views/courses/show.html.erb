@@ -6,7 +6,7 @@
 <% if @course.sections.any? %>
   <ul>
     <% @course.sections.each do |section| %>
-      <li><%= link_to section.name, course_sections_path(@course, section) %></li>
+      <li><%= link_to section.name, course_section_path(@course, section) %></li>
     <% end %>
   </ul>
 <% else %>

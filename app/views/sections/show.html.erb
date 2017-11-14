@@ -1,0 +1,21 @@
+<h1><%= @section.name %></h1>
+
+<p>
+  <%= link_to "Edit", edit_course_section_path(@course, @section) %> |
+  <%= link_to "Delete", course_section_path(@course, @section), data: {
+    confirm: "This will delete the section and all of its lessons. Are you sure?", 
+    method: "delete"
+  } %>
+</p>
+<% if @section.lessons.any? %>
+  <ul>
+    <% @section.lessons.each do |lesson| %>
+      <li><%= link_to lesson.name, section_lesson_path(@section, lesson) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <h3>This section has no lessons.</h3>
+<% end %>
+
+<p><%= link_to "Add a Lesson", new_section_lesson_path(@section) %></p>
+<p><%= link_to "Back to Course", course_path(@course) %></p>
