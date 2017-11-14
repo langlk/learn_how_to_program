@@ -2,7 +2,7 @@
 
 <% if @courses.any? %>
   <ul>
-    <% @courses.each do |course| %>
+    <% @courses.order(:name).each do |course| %>
       <li><%= link_to course.name, course_path(course) %></li>
     <% end %>
   </ul>
