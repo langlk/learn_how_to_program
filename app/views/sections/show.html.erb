@@ -1,4 +1,7 @@
-<h1><%= @section.name %></h1>
+<h1>
+  <%= link_to @section.course.name, course_path(@section.course) %> /
+  <%= @section.name %>
+</h1>
 
 <p>
   <%= link_to "Edit", edit_section_path(@section) %> |
@@ -18,4 +21,3 @@
 <% end %>
 
 <p><%= link_to "Add a Lesson", new_section_lesson_path(@section) %></p>
-<p><%= link_to "Back to Course", course_path(@section.course) %></p>
