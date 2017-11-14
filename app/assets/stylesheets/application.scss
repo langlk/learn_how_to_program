@@ -21,6 +21,10 @@ ul {
   font-size: 22px;
 }
 
+.navbar-default ul {
+  font-size: 18px;
+}
+
 @media screen and (max-width: 767px) {
   .navbar-default .navbar-header {
     display: flex;
