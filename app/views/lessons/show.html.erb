@@ -1,3 +1,12 @@
+<% content_for(:navbar) do %>
+  <% if @lesson.previous %>
+    <li> <%= link_to "Previous", lesson_path(@lesson.previous) %> </li>
+  <% end %>
+  <% if @lesson.next %>
+    <li> <%= link_to "Next", lesson_path(@lesson.next) %> </li>
+  <% end %>
+<% end %>
+
 <h1><%= @lesson.name %></h1>
 <p>
   <%= link_to "Edit", edit_lesson_path(@lesson)%> |
