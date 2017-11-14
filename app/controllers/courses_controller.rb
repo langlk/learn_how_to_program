@@ -10,6 +10,7 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
     if @course.save
+      flash[:notice] = "Course created!"
       redirect_to course_path(@course)
     else
       render :new
@@ -36,10 +37,17 @@ class CoursesController < ApplicationController
 
   def destroy
     @course = Course.find(params[:id])
+    @course.sections.each do |section|
+      section.lessons.each do |lesson|
+        lesson.destroy
+      end
+      section.destroy
+    end
     @course.destroy
     flash[:notice] = "Course '#{@course.name}' has been deleted."
     redirect_to courses_path
   end
+
 private
   def course_params
     params.require(:course).permit(:name)

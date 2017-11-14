@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   root to: 'courses#index'
 
   resources :courses do
-    resources :sections
+    resources :sections, except: [:index]
   end
 
-  resources :sections do
-    resources :lessons
+  resources :sections, only: [] do
+    resources :lessons, except: [:index]
   end
 end

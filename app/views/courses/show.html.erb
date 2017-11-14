@@ -1,7 +1,10 @@
 <h1><%= @course.name %></h1>
 <p>
   <%= link_to "Edit", edit_course_path(@course) %> |
-  <%= link_to "Delete", course_path(@course), data: { confirm: "Are you sure?", method: "delete"} %>
+  <%= link_to "Delete", course_path(@course), data: {
+    confirm: "This will delete all content for this course. Are you sure?", 
+    method: "delete"
+  } %>
 </p>
 <% if @course.sections.any? %>
   <ul>
