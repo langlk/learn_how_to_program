@@ -1,16 +1,16 @@
 <h1><%= @section.name %></h1>
 
 <p>
-  <%= link_to "Edit", edit_course_section_path(@course, @section) %> |
-  <%= link_to "Delete", course_section_path(@course, @section), data: {
-    confirm: "This will delete the section and all of its lessons. Are you sure?", 
+  <%= link_to "Edit", edit_section_path(@section) %> |
+  <%= link_to "Delete", section_path(@section), data: {
+    confirm: "This will delete the section and all of its lessons. Are you sure?",
     method: "delete"
   } %>
 </p>
 <% if @section.lessons.any? %>
   <ul>
     <% @section.lessons.each do |lesson| %>
-      <li><%= link_to lesson.name, section_lesson_path(@section, lesson) %></li>
+      <li><%= link_to lesson.name, lesson_path( lesson) %></li>
     <% end %>
   </ul>
 <% else %>
@@ -18,4 +18,4 @@
 <% end %>
 
 <p><%= link_to "Add a Lesson", new_section_lesson_path(@section) %></p>
-<p><%= link_to "Back to Course", course_path(@course) %></p>
+<p><%= link_to "Back to Course", course_path(@section.course) %></p>
