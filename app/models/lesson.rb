@@ -1,5 +1,6 @@
 class Lesson < ActiveRecord::Base
   validates :name, :content, :order, :section, presence: true
+  validates :order, uniqueness: { scope: :section, message: 'lesson order already taken in this section'}
   belongs_to :section
 
   def next
