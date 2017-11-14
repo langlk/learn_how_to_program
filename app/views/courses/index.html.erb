@@ -1,0 +1,13 @@
+<h1>Courses</h1>
+
+<% if @courses.any? %>
+  <ul>
+    <% @courses.each do |course| %>
+      <li><%= link_to course.name, course_path(course) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <h3>There are no saved courses.</h3>
+<% end %>
+
+<p><%= link_to "Add a Course", new_course_path %></p>
