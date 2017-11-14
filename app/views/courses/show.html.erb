@@ -9,6 +9,7 @@
   } %>
 </p>
 <% if @course.sections.any? %>
+  <h3>Course Sections</h3>
   <ul>
     <% @course.sections.order(:order).each do |section| %>
       <li><%= link_to section.name, section_path(section) %></li>

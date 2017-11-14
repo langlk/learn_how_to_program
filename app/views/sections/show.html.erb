@@ -22,6 +22,7 @@
   } %>
 </p>
 <% if @section.lessons.any? %>
+  <h3>Lessons</h3>
   <ul>
     <% @section.lessons.order(:order).each do |lesson| %>
       <li><%= link_to lesson.name, lesson_path( lesson) %></li>
