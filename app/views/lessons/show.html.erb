@@ -2,10 +2,10 @@
 
 <% content_for(:navbar) do %>
   <% if @lesson.previous %>
-    <li> <%= link_to "Previous", lesson_path(@lesson.previous) %> </li>
+    <li> <%= link_to "Previous Lesson", lesson_path(@lesson.previous) %> </li>
   <% end %>
   <% if @lesson.next %>
-    <li> <%= link_to "Next", lesson_path(@lesson.next) %> </li>
+    <li> <%= link_to "Next Lesson", lesson_path(@lesson.next) %> </li>
   <% end %>
 <% end %>
 

@@ -1,3 +1,12 @@
+<% content_for(:navbar) do %>
+  <% if @section.previous %>
+    <li> <%= link_to "Previous Section", section_path(@section.previous) %> </li>
+  <% end %>
+  <% if @section.next %>
+    <li> <%= link_to "Next Section", section_path(@section.next) %> </li>
+  <% end %>
+<% end %>
+
 <%= content_for(:title, "#{@section.name}") %>
 
 <h1>
