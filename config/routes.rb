@@ -9,6 +9,4 @@ Rails.application.routes.draw do
   resources :sections, only: [] do
     resources :lessons, shallow: true
   end
-
-  resources :lessons, only: [:new]
 end

@@ -9,39 +9,36 @@ class LessonsController < ApplicationController
     @lesson = @section.lessons.new(lesson_params)
     if @lesson.save
       flash[:notice] = "Lesson created!"
-      redirect_to section_lesson_path(@section, @lesson)
+      redirect_to lesson_path(@lesson)
     else
       render :new
     end
   end
 
   def show
-    @section = Section.find(params[:section_id])
-    @lesson = @section.lessons.find(params[:id])
+    @lesson = Lesson.find(params[:id])
   end
 
   def edit
-    @section = Section.find(params[:section_id])
-    @lesson = @section.lessons.find(params[:id])
+    @lesson = Lesson.find(params[:id])
   end
 
   def update
-    @section = Section.find(params[:section_id])
-    @lesson = @section.lessons.find(params[:id])
+    @lesson = Lesson.find(params[:id])
     if @lesson.update(lesson_params)
       flash[:notice] = "Lesson updated!"
-      redirect_to section_lesson_path(@section, @lesson)
+      redirect_to lesson_path(@lesson)
     else
       render :edit
     end
   end
 
   def destroy
-    @section = Section.find(params[:section_id])
-    @lesson = @section.lessons.find(params[:id])
+    @lesson = Lesson.find(params[:id])
+    @section = @lesson.section
     @lesson.destroy
     flash[:notice] = "Lesson '#{@lesson.name}' has been deleted."
-    redirect_to course_section_path(@section.course, @section)
+    redirect_to section_path(@section)
   end
 
 private
