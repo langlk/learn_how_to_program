@@ -1,3 +1,5 @@
+<%= content_for(:title, "#{@lesson.name}") %>
+
 <% content_for(:navbar) do %>
   <% if @lesson.previous %>
     <li> <%= link_to "Previous", lesson_path(@lesson.previous) %> </li>
