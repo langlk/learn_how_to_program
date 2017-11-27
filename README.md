@@ -6,7 +6,7 @@
 
 ## Description
 
-_Rails practice in cloning the functionality of Epicodus's site [learnhowtoprogram.com](learnhowtoprogram.com)._
+_Rails practice in cloning the functionality of Epicodus's site [learnhowtoprogram.com](http://learnhowtoprogram.com)._
 
 ## Set-up/Installation Instructions
 
